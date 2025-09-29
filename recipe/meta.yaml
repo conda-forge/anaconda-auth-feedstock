@@ -1,5 +1,5 @@
 {% set name = "anaconda-auth" %}
-{% set version = "0.9.0" %}
+{% set version = "0.9.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/anaconda_auth-{{ version }}.tar.gz
-  sha256: 1bdb858313dc9897e2f98f38c9799888f8dcb9e99c4346f0bb0bf49b40b18f0a
+  sha256: d40bbf8f694abad69dc36be736b09527044c5d700e14b463ef2e50ec6a8f7206
 
 build:
   entry_points:
