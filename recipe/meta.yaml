@@ -1,5 +1,5 @@
 {% set name = "anaconda-auth" %}
-{% set version = "0.10.0" %}
+{% set version = "0.11.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/anaconda_auth-{{ version }}.tar.gz
-  sha256: d8120161d5f66f43156e4bbfa0b76ba7c311ad723a87ec70e7b60d8424fe7646
+  sha256: 15af8035fdd1918bfc840d5a6c3cc98ab624c1dc34c927f511388c26eb881fdc
 
 build:
   entry_points:
@@ -33,7 +33,7 @@ requirements:
     - requests
     - cryptography >=3.4.0
     - semver <4
-    - anaconda-cli-base >=0.5.2
+    - anaconda-cli-base >=0.5.4
   run_constrained:
     - conda >=23.9.0
     - conda-token >=0.7.0
