@@ -33,7 +33,7 @@ requirements:
     - requests
     - cryptography >=3.4.0
     - semver <4
-    - anaconda-cli-base >=0.5.4
+    - anaconda-cli-base >=0.7.0
   run_constrained:
     - conda >=23.9.0
     - conda-token >=0.7.0
