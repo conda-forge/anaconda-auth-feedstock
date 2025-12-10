@@ -1,5 +1,5 @@
 {% set name = "anaconda-auth" %}
-{% set version = "0.12.0" %}
+{% set version = "0.12.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,13 +7,16 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/anaconda_auth-{{ version }}.tar.gz
-  sha256: 6d791311f15a12e313ded64fbdff24d4cc4dc956a174f85932f4159b09321bca
+  sha256: 8b18af0531570b766e998dc9db32b7023e4ad4aa73b2ab82223b2d15d3086ad7
 
 build:
   entry_points:
     - conda-token = anaconda_auth._conda.conda_token:cli
   noarch: python
-  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+  script:
+    - {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+    # Do not use python -m ... here to avoid unnecessary imports
+    - {{ PYTHON }} ./src/anaconda_auth/_conda/config.py --install
   number: 0
 
 requirements:
@@ -46,6 +49,7 @@ test:
     - conda-token --help
     - anaconda auth --help
     - python -c "from anaconda_auth import __version__; assert __version__ == \"{{ version }}\""
+    - python -m anaconda_auth._conda.config --verify
   requires:
     - python {{ python_min }}
     - conda
