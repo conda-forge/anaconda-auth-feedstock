@@ -13,7 +13,10 @@ build:
   entry_points:
     - conda-token = anaconda_auth._conda.conda_token:cli
   noarch: python
-  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+  script:
+    - {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+    # Do not use python -m ... here to avoid unnecessary imports
+    - {{ PYTHON }} ./src/anaconda_auth/_conda/config.py --install
   number: 0
 
 requirements:
@@ -46,6 +49,7 @@ test:
     - conda-token --help
     - anaconda auth --help
     - python -c "from anaconda_auth import __version__; assert __version__ == \"{{ version }}\""
+    - python -m anaconda_auth._conda.config --verify
   requires:
     - python {{ python_min }}
     - conda
