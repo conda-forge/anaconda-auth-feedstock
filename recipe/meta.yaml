@@ -6,8 +6,8 @@ package:
   version: {{ version }}
 
 source:
-  url: https://github.com/anaconda/anaconda-auth/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: 6e952baf3ca2276b660187895b620274428f22a6576edd734ac490e22bb88279
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/anaconda_auth-{{ version }}.tar.gz
+  sha256: 8b18af0531570b766e998dc9db32b7023e4ad4aa73b2ab82223b2d15d3086ad7
 
 build:
   entry_points:
