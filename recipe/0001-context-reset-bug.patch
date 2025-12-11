@@ -1,0 +1,15 @@
+diff --git a/src/anaconda_auth/_conda/repo_config.py b/src/anaconda_auth/_conda/repo_config.py
+index 1692a1f3..f8d7893c 100644
+--- a/src/anaconda_auth/_conda/repo_config.py
++++ b/src/anaconda_auth/_conda/repo_config.py
+@@ -87,9 +87,7 @@ def can_restore_free_channel() -> bool:
+ 
+ 
+ def get_conda_context() -> context_module.Context:
+-    obj = context_module.context
+-    obj.__init__()
+-    return obj
++    return context_module.context
+ 
+ 
+ def get_ssl_verify() -> bool:
